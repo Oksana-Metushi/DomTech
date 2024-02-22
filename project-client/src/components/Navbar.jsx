@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-//import img from "../assets/fav_icon.png"
 
 
 const Navbar = () => {
