@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import img from "../assets/fav_icon.png"
+//import img from "../assets/fav_icon.png"
 
 
 const Navbar = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
         <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-50 glass'>
             <nav className="py-4 lg:px-24 px-4">
                 <div className='flex justify-between items-center text-base gap-8'>
-                    <Link to="/" className='text-blue'> <img src={img} alt="" /></Link>
+                    <Link to="/" className='text-blue'></Link>
 
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
