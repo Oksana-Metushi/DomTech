@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import img from "../assets/fav_icon.png"
 
 
 const Navbar = () => {
@@ -36,9 +37,9 @@ const Navbar = () => {
 
     return (
         <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-30 glass'>
-            <nav className="py-4 lg:px-24 px-4">
+            <nav className="py-2 lg:px-24 px-4">
                 <div className='flex justify-between items-center text-base gap-8'>
-                    <Link to="/" className='text-blue'> Logo</Link>
+                    <Link to="/" className='text-blue'> <img src={img} alt="" /></Link>
 
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
@@ -61,12 +62,12 @@ const Navbar = () => {
                             </div>
                             <div className="drawer-side" >
                                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                                <div className="menu p-4 w-80 min-h-full bg-blue text-base-content">
+                                <div className="menu p-4 w-80 min-h-full glass text-base-content">
                                     <div className='flex justify-between pr-4 text-2xl'>
                                         <h1>Menu</h1>
                                         <button onClick={toggleMenu} className='text-black focus:outline-none'>
                                             {
-                                                !isMenuOpen ? <FaXmark className='w- h-5 text-black' /> : ""
+                                                !isMenuOpen ? ""  : <FaXmark className='w- h-5 text-black'/>
                                             }
                                         </button>
                                     </div>
