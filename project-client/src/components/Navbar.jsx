@@ -36,8 +36,8 @@ const Navbar = () => {
     ]
 
     return (
-        <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-30 glass'>
-            <nav className="py-2 lg:px-24 px-4">
+        <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-50 glass'>
+            <nav className="py-4 lg:px-24 px-4">
                 <div className='flex justify-between items-center text-base gap-8'>
                     <Link to="/" className='text-blue'> <img src={img} alt="" /></Link>
 
@@ -50,11 +50,11 @@ const Navbar = () => {
                             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                             <div className="drawer-content">
                                 {/* Page content here */}
-                                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
+                                <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">
                                     <div className=''>
-                                    <button onClick={toggleMenu} className='text-black focus:outline-none'>
+                                    <button onClick={toggleMenu} className='text-white focus:outline-none'>
                                             {
-                                                isMenuOpen ? "": <FaBars className='w- h-5 text-black' />
+                                                isMenuOpen ? "": <FaBars className='w- h-5 text-white' />
                                             }
                                         </button>
                                     </div>
