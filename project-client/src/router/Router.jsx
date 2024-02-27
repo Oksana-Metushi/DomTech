@@ -4,6 +4,8 @@ import App from '../App';
 import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Contact from '../pages/contact/Contact';
+import Register from '../pages/home/register/Register';
+import LogIn from '../pages/home/register/LogIn';
 
 const Router = createBrowserRouter([
     {
@@ -21,6 +23,14 @@ const Router = createBrowserRouter([
             {
                 path: "/contactus",
                 element: <Contact/>
+            },
+            {
+                      path: "/register",
+                element: <Register />
+            },
+            {
+                path: "/login",
+                element: <LogIn />
             }
         ]
     },
