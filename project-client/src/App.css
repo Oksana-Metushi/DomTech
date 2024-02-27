@@ -1,4 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 .section-container {
-    @apply max-w-screen-2xl container mx-auto xl:px-24 px-4
-  }
-  
+  @apply max-w-screen-2xl container mx-auto xl:px-24 px-4
+}
+
+/* .swiper {
+  width: 384px;
+  height: 400px;
+} */
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(78, 78, 78);
+  outline: 1px solid slategrey;
+}
