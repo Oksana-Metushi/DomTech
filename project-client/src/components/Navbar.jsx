@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import img from "../assets/fav_icon.png";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) {
+            if (window.scrollY > 600) {
                 setIsSticky(true);
             } else {
                 setIsSticky(false);
@@ -29,19 +30,23 @@ const Navbar = () => {
     const navItems = [
         { id: 1, link: "Home", path: "/" }, // Added unique id
         { id: 2, link: "About", path: "/about" }, // Changed path to be unique
+        { id: 3, link: "Contact", path: "/contact" },
     ]
 
     return (
         <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-50 glass'>
-            <nav className="py-4 lg:px-24 px-4">
+            <nav className={` xl:px-24 px-4 py-2 ${isSticky
+                ? "bg-black transition-all duration-300 ease-in-out"
+                : ""
+                }`}>
                 <div className='flex justify-between items-center text-base gap-8'>
-                    <Link to="" className='text-blue'></Link>
+                    <Link to="/" className='w-10'> <img src={img} alt="" /></Link>
 
-                    <div className="form-control">
+                    <div className="form-control lg:block hidden">
                         <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
                     </div>
 
-                    <div className='space-x-2 hidden lg:flex items-center'>
+                    <div className='space-x-2 flex items-center'>
 
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -59,53 +64,42 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src="https://static.vecteezy.com/system/resources/previews/014/396/452/non_2x/comic-style-user-icon-with-transparent-background-file-png.png" />
-                                    </div>
+                        </div>
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src="https://static.vecteezy.com/system/resources/previews/014/396/452/non_2x/comic-style-user-icon-with-transparent-background-file-png.png" />
                                 </div>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                    
-                                    <li>
-                                        <Link to="/register">Register</Link>
-                                    </li>
-                                </ul>
                             </div>
-                        
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+
+                                <li>
+                                    <Link to="/register">Register</Link>
+                                </li>
+                            </ul>
+                        </div>
+
+
 
                         <div className="drawer drawer-end">
                             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                             <div className="drawer-content">
-                                
-                                <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">
-                                    <div className=''>
-                                        <button onClick={toggleMenu} className='text-black focus:outline-none'>
-                                            {
-                                                isMenuOpen ? <FaXmark className='w- h-5 text-white' /> : <FaBars className='w-5 h-5 text-white' />
-                                            }
-                                        </button>
-                                    </div>
-                                </label>
+                                {/* Page content here */}
+                                <label htmlFor="my-drawer-4" className="text-white"><FaBars /></label>
                             </div>
                             <div className="drawer-side">
-                                <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                                <div className="menu p-4 w-80 min-h-full glass text-base-content">
-                                    <div className='flex justify-between pr-4 text-2xl'>
-                                        <h1>Menu</h1>
-                                        <button onClick={() => setIsMenuOpen(false)} className='text-black focus:outline-none'>
-                                            {
-                                                isMenuOpen ? <FaXmark className='w- h-5 text-black' /> : ""
-                                            }
-                                        </button>
-                                    </div>
-                                    {
+                                <ul className="menu p-4 w-80 min-h-full glass text-base-content">
+                                    <li> {
                                         navItems.map(({ id, link, path }) => <Link key={id} to={path} className='block text-base text-white uppercase '>{link}</Link>)
                                         // Used id as key
-                                    }
-                                </div>
+                                    }</li>
+                                    <li>
+                                        <div className="form-control lg:hidden block">
+                                            <input type="text" placeholder="Search" className="input-bordered p-2 outline-none rounded-md" />
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
