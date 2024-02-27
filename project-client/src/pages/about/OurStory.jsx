@@ -1,7 +1,7 @@
 import React from 'react'
 import img from "../../assets/about.png"
 
-const Aboutus = () => {
+const OurStory = () => {
     return (
         <div className='section-container flex md:flex-row flex-col gap-2 justify-between items-center my-[10%]'>
             <div>
@@ -20,4 +20,4 @@ const Aboutus = () => {
     )
 }
 
-export default Aboutus
+export default OurStory

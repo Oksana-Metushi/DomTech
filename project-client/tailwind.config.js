@@ -11,7 +11,8 @@ export default {
         "blue": "#2374AB",
       },
       fontFamily: {
-        'primary': ['Roboto', 'sans-serif'],
+        'primary': ['Roboto Flex', 'sans-serif'],
+        'tek': ['Tektur', 'sans-serif']
       },
     },
   },
