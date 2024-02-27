@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import { CgProfile } from "react-icons/cg";
-
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,28 +15,27 @@ const Navbar = () => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsSticky(true);
-            }
-            else {
+            } else {
                 setIsSticky(false);
             }
         }
         window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.addEventListener("scroll", handleScroll)
+            window.removeEventListener("scroll", handleScroll); // Changed from addEventListener to removeEventListener
         }
     }, [])
 
     const navItems = [
-        { link: "Home", path: "/" },
-        { link: "About", path: "/" },
+        { id: 1, link: "Home", path: "/" }, // Added unique id
+        { id: 2, link: "About", path: "/about" }, // Changed path to be unique
     ]
 
     return (
         <header className='w-full fixed top-0 left-0 right-0 transition-all ease-in duration-300 z-50 glass'>
             <nav className="py-4 lg:px-24 px-4">
                 <div className='flex justify-between items-center text-base gap-8'>
-                    <Link to="/" className='text-blue'></Link>
+                    <Link to="" className='text-blue'></Link>
 
                     <div className="form-control">
                         <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
@@ -71,8 +68,9 @@ const Navbar = () => {
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     
-                                    <li><a>Login</a></li>
-                                    <li><a>Signup</a></li>
+                                    <li>
+                                        <Link to="/register">Register</Link>
+                                    </li>
                                 </ul>
                             </div>
                         
@@ -80,7 +78,7 @@ const Navbar = () => {
                         <div className="drawer drawer-end">
                             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                             <div className="drawer-content">
-                                {/* Page content here */}
+                                
                                 <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">
                                     <div className=''>
                                         <button onClick={toggleMenu} className='text-black focus:outline-none'>
@@ -104,7 +102,8 @@ const Navbar = () => {
                                         </button>
                                     </div>
                                     {
-                                        navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-white uppercase '>{link}</Link>)
+                                        navItems.map(({ id, link, path }) => <Link key={id} to={path} className='block text-base text-white uppercase '>{link}</Link>)
+                                        // Used id as key
                                     }
                                 </div>
                             </div>
