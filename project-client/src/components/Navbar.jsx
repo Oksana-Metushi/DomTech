@@ -42,7 +42,7 @@ const Navbar = () => {
                 : ""
                 }`}>
                 <div className='flex justify-between items-center text-base gap-8'>
-                    <Link to="/" className='text-blue w-10'> <img src={img} alt="" /></Link>
+                    <Link to="" className='text-blue w-10'> </Link>
 
                     <div className="form-control lg:block hidden">
                         <input type="text" placeholder="Search" className="input-bordered p-2 outline-none rounded-md" />
