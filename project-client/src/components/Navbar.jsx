@@ -25,14 +25,14 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.addEventListener("scroll", handleScroll)
+            window.removeEventListener("scroll", handleScroll)
         }
     }, [])
 
     const navItems = [
-        { link: "Home", path: "/" },
-        { link: "About Us", path: "/aboutus" },
-        { link: "Contact Us", path: "/contactus" },
+        { id:1 ,link: "Home", path: "/" },
+        { id:2, link: "About Us", path: "/aboutus" },
+        { id:3, link: "Contact Us", path: "/contactus" },
     ]
 
     return (
@@ -89,7 +89,7 @@ const Navbar = () => {
                                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                                 <ul className="menu p-4 w-80 min-h-full glass text-base-content">
                                     <li>{
-                                        navItems.map(({ link, path }) => <Link key={path} to={path} className='block text-base text-white uppercase '>{link}</Link>)
+                                        navItems.map(({ id, link, path }) => <Link key={id} to={path} className='block text-base text-white uppercase '>{link}</Link>)
                                     }</li>
                                     <li>
                                         <div className="form-control lg:hidden block">
